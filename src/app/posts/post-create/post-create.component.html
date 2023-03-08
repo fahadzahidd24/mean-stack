@@ -1,0 +1,37 @@
+<div class="loader w-50 mx-auto text-center my-3" *ngIf="isLoading">
+  <div class="lds-roller">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+<div class="card w-50 mx-auto my-5" *ngIf="!isLoading">
+  <div class="card-body">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="title" class="form-label">Post Title</label>
+        <input type="text" class="form-control" formControlName="title" name="title" id="title" aria-describedby="title" placeholder="Title..."
+          >
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Content</label>
+        <textarea class="form-control" name="content" formControlName="content" id="content" placeholder="Post Content..."
+          style="resize:none"></textarea>
+      </div>
+      <!-- <div class="mb-3 d-flex w-100">
+        <button class="btn btn-secondary w-25" type="button" (click)="imagePicker.click()" >Pick Image</button>
+        <input type="file" name="image" id="image" (change)="onImagePicked($event)" #imagePicker>
+      </div> -->
+      <!-- <div class="image-preview my-2" *ngIf="imagePreview">
+        <img [src]="imagePreview" [alt]="form.value.title">
+      </div> -->
+
+      <button type="submit" class="btn btn-primary w-25">Submit</button>
+    </form>
+  </div>
+</div>
